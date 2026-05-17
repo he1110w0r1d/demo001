@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+.DS_Store
+*.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+.env
+.env.local
+*.log
+
+# 原始 3D 模型源文件(共 ~205MB),运行时只用 public/models/ 下压缩版
+3d/
+

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>情绪缓冲卡 - AI 参与</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#d6a9ff",
+                    "surface-container": "#1f1f27",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-tertiary": "#4f2500",
+                    "on-secondary-fixed-variant": "#6900b3",
+                    "on-surface": "#e4e1ed",
+                    "on-secondary": "#490080",
+                    "inverse-on-surface": "#303038",
+                    "surface-bright": "#393841",
+                    "secondary-fixed-dim": "#ddb7ff",
+                    "secondary-container": "#6f00be",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "tertiary": "#ffb783",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "error": "#ffb4ab",
+                    "primary-fixed": "#e1e0ff",
+                    "on-background": "#e4e1ed",
+                    "inverse-surface": "#e4e1ed",
+                    "on-primary": "#1000a9",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary": "#ddb7ff",
+                    "outline-variant": "#464554",
+                    "surface": "#13131b",
+                    "tertiary-container": "#d97721",
+                    "on-primary-fixed": "#07006c",
+                    "surface-container-lowest": "#0d0d15",
+                    "inverse-primary": "#494bd6",
+                    "surface-dim": "#13131b",
+                    "surface-variant": "#34343d",
+                    "on-error-container": "#ffdad6",
+                    "background": "#13131b",
+                    "surface-tint": "#c0c1ff",
+                    "on-secondary-fixed": "#2c0051",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "primary-container": "#8083ff",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "surface-container-highest": "#34343d",
+                    "on-tertiary-container": "#452000",
+                    "secondary-fixed": "#f0dbff",
+                    "outline": "#908fa0",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1b1b23",
+                    "on-primary-container": "#0d0096",
+                    "primary": "#c0c1ff",
+                    "surface-container-high": "#292932"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "container-margin": "20px",
+                    "gutter": "12px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Be Vietnam Pro"
+                    ],
+                    "body-md": [
+                            "Be Vietnam Pro"
+                    ],
+                    "headline-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Be Vietnam Pro"
+                    ],
+                    "display-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #13131b;
+            color: #e4e1ed;
+        }
+        .glass-panel {
+            background: rgba(31, 31, 39, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(192, 193, 255, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #c0c1ff, #ddb7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin py-md bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(192,193,255,0.1)] transition-all duration-300 ease-out active:scale-95">
+<div class="font-display-lg-mobile text-display-lg-mobile font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">情绪缓冲卡</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 px-sm py-xs rounded font-label-sm text-label-sm" href="#">核心理念</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 px-sm py-xs rounded font-label-sm text-label-sm" href="#">互动体验</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">AI智愈</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors hover:bg-white/5 px-sm py-xs rounded font-label-sm text-label-sm" href="#">关于我们</a>
+</div>
+<button class="bg-primary/10 text-primary border border-primary/20 px-md py-sm rounded-full font-label-sm text-label-sm hover:bg-primary/20 transition-colors hidden md:block">
+            立即下载
+        </button>
+<!-- Mobile Menu Icon (simplified) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px] pb-xl px-container-margin flex flex-col items-center w-full max-w-7xl mx-auto space-y-xl">
+<!-- Hero Section -->
+<section class="w-full text-center py-xl relative">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none rounded-3xl"></div>
+<h1 class="font-display-lg md:font-display-lg text-display-lg md:text-display-lg mb-md text-gradient">AI 的深度参与</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant max-w-2xl mx-auto">
+                不是替代你的表达，而是让你的表达更有力量。
+            </p>
+</section>
+<!-- Module 1: Perception (AI 识别) -->
+<section class="w-full grid grid-cols-1 md:grid-cols-2 gap-lg items-center glass-panel rounded-xl p-lg md:p-xl glow-effect relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="space-y-md z-10">
+<div class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-surface-variant border border-outline-variant font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined" style="font-size: 16px;">sensors</span>
+                    感知层 (Perception)
+                </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">多模态情绪侦测</h2>
+<p class="text-on-surface-variant">
+                    我们的 AI 引擎不仅阅读文本，更解析隐藏在视频画面、语调和弹幕交互中的情绪触发源。精准捕捉“不公平”、“挑衅”或“焦虑”的细微信号。
+                </p>
+<div class="flex flex-wrap gap-sm mt-md">
+<span class="px-md py-sm rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">visibility</span> 视觉扫描
+                    </span>
+<span class="px-md py-sm rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">translate</span> 语义解析
+                    </span>
+<span class="px-md py-sm rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-sm text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">graphic_eq</span> 声纹波动
+                    </span>
+</div>
+</div>
+<!-- Visualization / Data Art -->
+<div class="relative h-[300px] rounded-lg overflow-hidden flex items-center justify-center bg-surface-container-lowest border border-outline-variant">
+<div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, #c0c1ff 1px, #c0c1ff 2px); background-size: 100% 8px;"></div>
+<!-- Simulated Waveform / Data vis -->
+<div class="w-full px-lg flex items-end justify-between h-32 space-x-1 z-10">
+<div class="w-2 bg-primary/40 rounded-t-sm animate-[pulse_1s_ease-in-out_infinite]" style="height: 40%"></div>
+<div class="w-2 bg-primary/60 rounded-t-sm animate-[pulse_1.2s_ease-in-out_infinite]" style="height: 70%"></div>
+<div class="w-2 bg-primary rounded-t-sm animate-[pulse_0.8s_ease-in-out_infinite]" style="height: 90%; box-shadow: 0 0 10px #c0c1ff;"></div>
+<div class="w-2 bg-secondary rounded-t-sm animate-[pulse_1.5s_ease-in-out_infinite]" style="height: 60%"></div>
+<div class="w-2 bg-error rounded-t-sm animate-[pulse_0.9s_ease-in-out_infinite]" style="height: 85%; box-shadow: 0 0 10px #ffb4ab;"></div>
+<div class="w-2 bg-primary/50 rounded-t-sm animate-[pulse_1.1s_ease-in-out_infinite]" style="height: 50%"></div>
+<div class="w-2 bg-primary/30 rounded-t-sm animate-[pulse_1.3s_ease-in-out_infinite]" style="height: 30%"></div>
+</div>
+<!-- Scanning line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary shadow-[0_0_15px_#ddb7ff] animate-[ping_3s_linear_infinite]"></div>
+</div>
+</section>
+<!-- Module 2: Understanding (AI 理解) -->
+<section class="w-full flex flex-col md:flex-row-reverse gap-lg items-center mt-xl">
+<div class="flex-1 space-y-md w-full">
+<div class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-surface-variant border border-outline-variant font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined" style="font-size: 16px;">psychology</span>
+                    心理层 (Understanding)
+                </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">洞察愤怒的底色</h2>
+<p class="text-on-surface-variant">
+                    表面上是愤怒，底层可能是对不公的无力感，或是对某种价值观的坚守。AI 不仅记录情绪，更通过心理学模型进行深度拆解，帮你看见真实的自己。
+                </p>
+</div>
+<!-- Insights Card / Bento Item -->
+<div class="flex-1 w-full glass-panel rounded-xl p-md border border-secondary/20 relative">
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-body-lg text-body-lg text-on-surface">AI 情绪洞察报告</h3>
+<span class="material-symbols-outlined text-secondary">analytics</span>
+</div>
+<div class="space-y-sm">
+<div class="bg-surface-container rounded-lg p-sm flex justify-between items-center border border-outline-variant/50">
+<span class="text-on-surface-variant font-label-sm text-label-sm">表层情绪</span>
+<span class="text-error font-body-md text-body-md bg-error/10 px-sm py-xs rounded">愤怒 / 烦躁</span>
+</div>
+<div class="flex justify-center py-xs">
+<span class="material-symbols-outlined text-outline-variant">arrow_downward</span>
+</div>
+<div class="bg-surface-container-high rounded-lg p-sm border border-secondary/30 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="pl-sm">
+<span class="text-on-surface font-label-sm text-label-sm block mb-xs">深层动机分析</span>
+<p class="text-secondary font-body-md text-body-md">
+                                "你感到生气，是因为这触犯了你对『公平责任』的底线。这说明你是一个极具责任感的人。"
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Module 3: Transformation (AI 转化) -->
+<section class="w-full mt-xl flex flex-col items-center">
+<div class="text-center mb-lg">
+<div class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-surface-variant border border-outline-variant font-label-sm text-label-sm text-tertiary mb-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">transform</span>
+                    表达层 (Transformation)
+                </div>
+<h2 class="font-headline-md text-headline-md text-on-surface">从本能反应到理性表达</h2>
+</div>
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-md max-w-4xl">
+<!-- Before: Raw Emotion -->
+<div class="glass-panel rounded-xl p-md border border-error/20 flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-sm opacity-20">
+<span class="material-symbols-outlined text-error" style="font-size: 48px;">local_fire_department</span>
+</div>
+<span class="text-error font-label-sm text-label-sm mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">close</span> 原始冲动 (火爆评论)
+                    </span>
+<div class="bg-surface-container rounded-lg p-md flex-grow">
+<p class="text-on-surface-variant italic line-through decoration-error/50">
+                            "这什么垃圾视频，UP主脑子有坑吧？根本就是胡说八道！"
+                        </p>
+</div>
+</div>
+<!-- After: Rational Expression -->
+<div class="glass-panel rounded-xl p-md border border-primary/30 flex flex-col relative overflow-hidden glow-effect">
+<div class="absolute top-0 right-0 p-sm opacity-20">
+<span class="material-symbols-outlined text-primary" style="font-size: 48px;">auto_awesome</span>
+</div>
+<span class="text-primary font-label-sm text-label-sm mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">check</span> AI 建议表达 (理性转化)
+                    </span>
+<div class="bg-primary/5 border border-primary/20 rounded-lg p-md flex-grow">
+<p class="text-on-surface font-body-md text-body-md">
+                            "我不太认同视频里的观点。我认为在这个问题上，责任划分应该更明确，而不是一概而论。建议UP主可以多查阅相关资料。"
+                        </p>
+</div>
+<!-- Interaction button -->
+<button class="mt-sm self-end bg-surface-container hover:bg-surface-container-high text-primary border border-primary/20 px-sm py-xs rounded font-label-sm text-label-sm flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined" style="font-size: 14px;">content_copy</span> 采纳并复制
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-container-margin flex flex-col md:flex-row justify-between items-center gap-lg bg-surface-container-lowest border-t border-outline-variant opacity-80 hover:opacity-100 transition-opacity">
+<div class="font-display-lg-mobile text-headline-md text-on-surface">情绪缓冲卡</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">隐私协议</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">使用条款</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">加入我们</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-sm text-label-sm" href="#">联系支持</a>
+</div>
+<div class="font-body-md text-body-md text-secondary text-sm">
+            © 2024 情绪缓冲卡 Digital Sanctuary. All rights reserved.
+        </div>
+</footer>
+</body></html>
